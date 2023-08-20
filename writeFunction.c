@@ -100,7 +100,10 @@ int _printf(const char *format, ...)
 			while (p->code)
 			{
 				if (*(p->code) == *format)
+				{
 					successWrites += p->f(args);
+					break;
+				}
 				p++;
 			}
 			if (!p->code && *format != ' ')
