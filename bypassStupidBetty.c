@@ -10,7 +10,7 @@
 */
 int continueFunction(const char *format, va_list args, proto protos[])
 {
-	int successWrites = 0, flag = 0;
+	int successWrites = 0, flag = 0, tmp = 0;
 	proto *p;
 
 	while (*format)
@@ -25,7 +25,10 @@ int continueFunction(const char *format, va_list args, proto protos[])
 			{
 				if (*(p->code) == *format)
 				{
-					successWrites += p->f(args);
+					tmp = p->f(args);
+					if (tmp < 0)
+						return (-1);
+					successWrites += tmp;
 					break;
 				}
 				p++;
