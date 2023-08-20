@@ -17,6 +17,8 @@ int continueFunction(const char *format, va_list args, proto protos[])
 	{
 		if (*format == '%' && !flag)
 			flag = 1;
+		else if (*format == '\0')
+			return (successWrites);
 		else if (flag)
 		{
 			flag = 0;
