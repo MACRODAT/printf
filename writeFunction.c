@@ -105,7 +105,7 @@ int _printf(const char *format, ...)
 			}
 			if (!p->code && *format == ' ')
 			{
-				if (format == '\0')
+				if (*format == '\0')
 					return (-1);
 				successWrites += _print_percent() + 1;
 				_putchar(format);
