@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL}
 	};
 
-	if (!format)
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(args, format);
 	successWrites = continueFunction(format, args, protos);
