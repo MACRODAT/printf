@@ -40,11 +40,11 @@ int continueFunction(const char *format, va_list args, proto protos[])
 				successWrites += 2;
 				_putchar(format);
 			}
-fin:
 		}
 		else
 			if (_putchar(format) > 0)
 				successWrites++;
+fin:
 		format++;
 	}
 
