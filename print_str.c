@@ -13,6 +13,11 @@ int _print_str(va_list arg)
 
 	str = va_arg(arg, char *);
 
+	if (!str)
+	{
+		str = "(null)";
+	}
+
 	while (*str)
 	{
 		if (_putchar(str) > 0)
