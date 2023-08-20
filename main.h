@@ -11,7 +11,7 @@ int _printf(const char *format, ...);
 typedef struct proto
 {
 	char *code;
-	int (*f)(va_list);
+	int (*f)();
 } proto;
 
 #endif

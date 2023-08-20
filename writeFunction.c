@@ -58,11 +58,10 @@ int _print_char(va_list arg)
 
 /**
  * _print_percent - writes percent
- * @arg: arg
  *
  * Return: success characters.
  */
-int _print_percent(va_list arg)
+int _print_percent()
 {
 	char p = '%';
 
@@ -82,16 +81,16 @@ int _printf(const char *format, ...)
 {
 	int successWrites = 0;
 	int flag = 0;
-	char *s;
-	char tmp;
 	va_list args;
+	proto protos[] = {
+		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL}
+	};
+	proto *p;
 
 	if (!format)
 		return (-1);
 	va_start(args, format);
-	proto protos[] = {
-		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL}
-	};
+	
 	while (*format)
 	{
 		if (*format == '%' && !flag)
@@ -99,8 +98,7 @@ int _printf(const char *format, ...)
 		else if (flag)
 		{
 			flag = 0;
-			proto *p = protos;
-
+			p = protos;
 			while (p->code)
 			{
 				if (*(p->code) == *format)
