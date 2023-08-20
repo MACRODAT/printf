@@ -58,7 +58,8 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-
+					s = va_arg(args, char *);
+					_putchar(s);
 					break;
 				case 's':
 					s = va_arg(args, char *);
