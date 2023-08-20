@@ -26,8 +26,6 @@ int continueFunction(const char *format, va_list args, proto protos[])
 				if (*(p->code) == *format)
 				{
 					tmp = p->f(args);
-					if (tmp < 0)
-						return (-1);
 					successWrites += tmp;
 					break;
 				}
