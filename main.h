@@ -4,14 +4,25 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-int _putchar(const char *c);
-int _printstr(const char *str);
-int _printf(const char *format, ...);
-
+/**
+ * struct proto - 
+ * @char: type
+ * @f: type
+ *
+ */
 typedef struct proto
 {
 	char *code;
 	int (*f)();
 } proto;
+
+int _putchar(const char *c);
+int _print_str(va_list arg);
+int _print_percent(void);
+int _print_char(va_list arg);
+int _printf(const char *format, ...);
+int continueFunction(const char * format, va_list va, proto protos[], proto *p);
+
+
 
 #endif

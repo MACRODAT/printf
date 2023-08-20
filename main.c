@@ -1,5 +1,4 @@
-#include "../main.h"
-#include "../writeFunction.c"
+#include "./main.h"
 
 int main(void)
 {
@@ -11,4 +10,3 @@ int main(void)
 	success = _printf(s, a1, 'B');
 	return (success);
 }
- 
