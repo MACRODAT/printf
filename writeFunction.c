@@ -103,7 +103,7 @@ int _printf(const char *format, ...)
 					successWrites += p->f(args);
 				p++;
 			}
-			if (!p->code && *format == ' ')
+			if (!p->code && *format != ' ')
 			{
 				if (*format == '\0')
 					return (-1);
