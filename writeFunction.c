@@ -24,7 +24,7 @@ int _printstr(const char *str)
 
 	while (*str)
 	{
-		if (_putchar(str))
+		if (_putchar(str) > 0)
 			success++;
 		str++;
 	}
@@ -57,8 +57,8 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					tmp = va_arg(args, int);
-					_putchar(&tmp);
-					successWrites++;
+					if (_putchar(&tmp))
+						successWrites++;
 					break;
 				case 's':
 					s = va_arg(args, char *);
