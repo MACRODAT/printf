@@ -49,6 +49,5 @@ int continueFunction(const char *format, va_list args, proto protos[])
 		}
 		format++;
 	}
-
 	return (successWrites);
 }
