@@ -6,4 +6,4 @@
 
 int _printf(const char *format, ...);
 
-#endif // DEBUG
+#endif

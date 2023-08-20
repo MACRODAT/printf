@@ -21,15 +21,22 @@ int _putchar(const char *c)
 int _printstr(const char *str)
 {
 	int success = 0;
+
 	while (*str)
 	{
 		if (_putchar(str))
 			success++;
 		str++;
 	}
-	return success;
+	return (success);
 }
 
+/**
+ * _printf - writes formatted output
+ * @format: the format
+ *
+ * Return: success characters.
+ */
 int _printf(const char *format, ...)
 {
 	int successWrites = 0;
@@ -59,7 +66,6 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					goto printChar;
-					break;
 			}
 		}
 		else
@@ -70,4 +76,5 @@ printChar:
 		}
 		format++;
 	}
+	return (successWrites);
 }
