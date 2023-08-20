@@ -29,14 +29,15 @@ int continueFunction(const char *format, va_list args, proto protos[])
 					if (tmp < 0)
 						return (-1);
 					successWrites += tmp;
-					goto fin;
+					break;
 				}
 				p++;
 			}
-			if (*format != ' ')
+			if (!p->code && *format != ' ')
 			{
 				if (*format == '\0')
 					return (-1);
+				_print_percent();
 				successWrites += 2;
 				_putchar(format);
 			}
@@ -44,7 +45,6 @@ int continueFunction(const char *format, va_list args, proto protos[])
 		else
 			if (_putchar(format) > 0)
 				successWrites++;
-fin:
 		format++;
 	}
 
