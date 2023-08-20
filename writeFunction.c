@@ -13,14 +13,17 @@ int _putchar(const char *c)
 }
 
 /**
- * _printstr - writes string
- * @str: The string
+ * _print_str - writes string
+ * @arg: arg
  *
  * Return: success characters.
  */
-int _printstr(const char *str)
+int _print_str(va_list arg)
 {
 	int success = 0;
+	char *str;
+
+	str = va_arg(arg, char *);
 
 	while (*str)
 	{
@@ -29,6 +32,44 @@ int _printstr(const char *str)
 		str++;
 	}
 	return (success);
+}
+
+
+/**
+ * _print_char - writes char
+ * @arg: arg
+ *
+ * Return: success characters.
+ */
+int _print_char(va_list arg)
+{
+	char c;
+
+	c = va_arg(arg, int);
+
+	if (c)
+	{
+		if (_putchar(&c) > 0)
+			return (1);
+	}
+	return (0);
+}
+
+
+/**
+ * _print_percent - writes percent
+ * @arg: arg
+ *
+ * Return: success characters.
+ */
+int _print_percent(va_list arg)
+{
+	char p = '%';
+
+	if (_putchar(&p))
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -45,9 +86,12 @@ int _printf(const char *format, ...)
 	char tmp;
 	va_list args;
 
-	va_start(args, format);
 	if (!format)
 		return (-1);
+	va_start(args, format);
+	proto protos[] = {
+		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL}
+	};
 	while (*format)
 	{
 		if (*format == '%' && !flag)
@@ -55,24 +99,17 @@ int _printf(const char *format, ...)
 		else if (flag)
 		{
 			flag = 0;
-			switch (*format)
+			proto *p = protos;
+
+			while (p->code)
 			{
-				case 'c':
-					tmp = va_arg(args, int);
-					if (_putchar(&tmp))
-						successWrites++;
-					break;
-				case 's':
-					s = va_arg(args, char *);
-					successWrites += _printstr(s);
-					break;
-				case '%':
-					goto printChar;
+				if (*(p->code) == *format)
+					successWrites += p->f(args);
+				p++;
 			}
 		}
 		else
 		{
-printChar:
 			if (_putchar(format) > 0)
 				successWrites++;
 		}
