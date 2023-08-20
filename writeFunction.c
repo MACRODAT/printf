@@ -42,6 +42,7 @@ int _printf(const char *format, ...)
 	int successWrites = 0;
 	int flag = 0;
 	char *s;
+	char tmp;
 	va_list args;
 
 	va_start(args, format);
@@ -58,8 +59,8 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					s = va_arg(args, char *);
-					_putchar(s);
+					tmp = va_arg(args, int);
+					_putchar(&tmp);
 					break;
 				case 's':
 					s = va_arg(args, char *);

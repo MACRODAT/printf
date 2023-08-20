@@ -8,6 +8,7 @@ int main(void)
 	char *a1 = "Argument 1 processed.\0";
 	char *a2 = "Argument 2 processed.\0";
 	char a3 = 'A';
-	success = _printf(s, a1, a2, &a3);
+	success = _printf(s, a1, a2, 'A');
 	return (success);
 }
+ 
