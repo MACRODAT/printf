@@ -61,10 +61,11 @@ int _printf(const char *format, ...)
 				case 'c':
 					tmp = va_arg(args, int);
 					_putchar(&tmp);
+					successWrites++;
 					break;
 				case 's':
 					s = va_arg(args, char *);
-					_printstr(s);
+					successWrites += _printstr(s);
 					break;
 				case '%':
 					goto printChar;
