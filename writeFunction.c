@@ -61,7 +61,7 @@ int _print_char(va_list arg)
  *
  * Return: success characters.
  */
-int _print_percent()
+int _print_percent(void)
 {
 	char p = '%';
 
@@ -90,7 +90,7 @@ int _printf(const char *format, ...)
 	if (!format)
 		return (-1);
 	va_start(args, format);
-	
+
 	while (*format)
 	{
 		if (*format == '%' && !flag)
