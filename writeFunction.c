@@ -76,5 +76,6 @@ printChar:
 		}
 		format++;
 	}
+	va_end(args);
 	return (successWrites);
 }
