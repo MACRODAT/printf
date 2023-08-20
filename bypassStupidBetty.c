@@ -5,9 +5,10 @@
  * @format: format string
  * @va_list: va
 */
-int continueFunction(const char * format, va_list args, proto protos[], proto *p)
+int continueFunction(const char * format, va_list args, proto protos[])
 {
 	int successWrites = 0, flag = 0;
+	proto *p;
 
 	while (*format)
 	{
@@ -39,4 +40,6 @@ int continueFunction(const char * format, va_list args, proto protos[], proto *p
 				successWrites++;
 		format++;
 	}
+
+	return (successWrites);
 }
