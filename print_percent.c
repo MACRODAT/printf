@@ -9,8 +9,6 @@ int _print_percent(void)
 {
 	char p = '%';
 
-	if (_putchar(&p))
-		return (1);
-	else
-		return (0);
+	_putchar(&p);
+	return (1);
 }
