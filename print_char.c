@@ -14,8 +14,8 @@ int _print_char(va_list arg)
 
 	if (c)
 	{
-		if (_putchar(&c) > 0)
-			return (1);
+		_putchar(&c);
+		return (1);
 	}
 	return (0);
 }
