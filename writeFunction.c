@@ -81,10 +81,7 @@ int _printf(const char *format, ...)
 {
 	int successWrites = 0, flag = 0;
 	va_list args;
-	proto protos[] = {
-		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL}
-	};
-	proto *p;
+	proto protos[] = { {"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL} }, *p;
 
 	if (!format)
 		return (-1);
@@ -115,10 +112,8 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
-		{
 			if (_putchar(format) > 0)
 				successWrites++;
-		}
 		format++;
 	}
 	va_end(args);
