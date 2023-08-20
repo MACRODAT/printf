@@ -5,8 +5,8 @@
 #include <stdarg.h>
 
 /**
- * struct proto - 
- * @char: type
+ * struct proto - ee
+ * @code: type
  * @f: type
  *
  */
@@ -21,7 +21,7 @@ int _print_str(va_list arg);
 int _print_percent(void);
 int _print_char(va_list arg);
 int _printf(const char *format, ...);
-int continueFunction(const char * format, va_list va, proto protos[]);
+int continueFunction(const char *format, va_list va, proto protos[]);
 
 
 

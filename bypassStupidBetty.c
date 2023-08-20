@@ -3,9 +3,12 @@
 /**
  * continueFunction - continue
  * @format: format string
- * @va_list: va
+ * @args: va
+ * @protos: va
+ *
+ * Return: nothing
 */
-int continueFunction(const char * format, va_list args, proto protos[])
+int continueFunction(const char *format, va_list args, proto protos[])
 {
 	int successWrites = 0, flag = 0;
 	proto *p;
