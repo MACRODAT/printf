@@ -26,7 +26,6 @@ int continueFunction(const char *format, va_list args, proto protos[])
 		successWrites += _putchar(&format[index]);
 		index++;
 	}
-	_putchar_val(-2);
 	return (successWrites);
 }
 

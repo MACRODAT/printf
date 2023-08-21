@@ -23,6 +23,7 @@ int _printf(const char * const format, ...)
 		return (-1);
 	va_start(args, format);
 	successWrites = continueFunction(format, args, protos);
+	_putchar_val(-2);
 	va_end(args);
 	return (successWrites);
 }
