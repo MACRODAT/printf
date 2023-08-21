@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-#define BUFFER_LEN 10
+#define BUFFER_LEN 1024
 
 /**
  * struct proto - ee

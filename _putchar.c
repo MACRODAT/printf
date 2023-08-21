@@ -12,11 +12,11 @@ int _writer(const char c)
 	int j = 0;
 	static char buffer[BUFFER_LEN];
 
-	if (c == -2 || i >= BUFFER_LEN)
+	if (c == -2 || i == BUFFER_LEN - 2)
 	{
-		if (i >= BUFFER_LEN)
+		if (i == BUFFER_LEN - 2)
 			buffer[i++] = c;
-		while (j <= i)
+		while (j < i)
 		{
 			write(1, (buffer + j), 1);
 			j++;
