@@ -17,11 +17,13 @@ typedef struct proto
 } proto;
 
 int _putchar(const char *c);
+int _putchar_val(const char c);
 int _print_str(va_list arg);
 int _print_percent(void);
 int _print_char(va_list arg);
 int _printf(const char *format, ...);
 int continueFunction(const char *format, va_list va, proto protos[]);
+int handle_args(const char *format, int *index, va_list args, proto protos[]);
 
 
 

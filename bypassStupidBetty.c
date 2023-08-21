@@ -10,43 +10,53 @@
 */
 int continueFunction(const char *format, va_list args, proto protos[])
 {
-	int successWrites = 0, flag = 0;
-	proto *p;
+	int successWrites = 0, tmp, index = 0;
 
-	while (*format)
+	while (format[index])
 	{
-		if (*format == '%' && !flag)
-			flag = 1;
-		else if (flag)
+		if (format[index] == '%')
 		{
-			flag = 0;
-			p = protos;
-			while (p->code)
-			{
-				if (*(p->code) == *format)
-				{
-					successWrites += p->f(args);
-					break;
-				}
-				p++;
-			}
-			if (!p->code && *format != ' ')
-			{
-				if (*format == '\0')
-					return (-1);
-				_print_percent();
-				successWrites += 2;
-				_putchar(format);
-			}
+			tmp = handle_args(format, &index, args, protos);
+			if (tmp == -1)
+				return (-1);
+			successWrites += tmp;
+			(index)++;
+			continue;
 		}
-		else
-		{
-			_putchar(format);
-			successWrites++;
-		}
-		format++;
-		if (flag && (!(*format) || *format == '\0'))
-			return (-1);
+		_putchar(&format[index]);
+		successWrites++;
+		index++;
 	}
 	return (successWrites);
+}
+
+/**
+ * handle_args - handling percent args
+ * @format: format string
+ * @index: index string
+ * @args: va
+ * @protos: va
+ *
+ * Return: writes
+*/
+int handle_args(const char *format, int *index, va_list args, proto protos[])
+{
+	int n_protos, i = 0, size = -1;
+
+	(*index)++;
+	n_protos = 3;
+	if (!format[*index] || format[*index] == '\0')
+		return (-1);
+	for (i = 0; i < n_protos; i++)
+	{
+		if (*protos[i].code == format[*index])
+		{
+			size = protos[i].f(args);
+			return (size);
+		}
+	}
+
+	_putchar_val('%');
+	_putchar(&format[*index]);
+	return (2);
 }
