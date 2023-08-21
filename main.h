@@ -4,6 +4,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+#define BUFFER_LEN 10
+
 /**
  * struct proto - ee
  * @code: type

@@ -10,10 +10,12 @@ int _writer(const char c)
 {
 	static int i;
 	int j = 0;
-	static char buffer[1024];
+	static char buffer[BUFFER_LEN];
 
-	if (c == -2 || i >= 1024)
+	if (c == -2 || i >= BUFFER_LEN)
 	{
+		if (i >= BUFFER_LEN)
+			buffer[i++] = c;
 		while (j <= i)
 		{
 			write(1, (buffer + j), 1);
