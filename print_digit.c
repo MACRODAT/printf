@@ -2,7 +2,32 @@
 #include <unistd.h>
 
 /**
- * _print_digit - print integers.
+ * _reverse_print - prints strings in reverse
+ * @s: string input
+ *
+ * Return: print count
+*/
+int _reverse_print(const char *s)
+{
+	int _len = 0, i = 0;
+
+	while (*s)
+	{
+		_len++;
+		s++;
+	}
+
+	for (i = _len - 1; i >= 0; i--)
+	{
+		_putchar(&s[i]);
+	}
+
+	return (_len);
+}
+
+/**
+ * _print_digit - print integers, not the
+ * most efficient
  * @args: argument
  *
  * Return: writes
@@ -10,32 +35,38 @@
 
 int _print_digit(va_list args)
 {
-	int decimal = 1;
-	int count_fun = 0;
+	int i = 0;
+	int writeCount = 0;
 	long int digit = va_arg(args, int);
-	long int digitaux;
+	char *s[1000];
+
+	if (digit == '0')
+	{
+		_putchar_val('0');
+		return (1);
+	}
 
 	if (digit < 0)
 	{
-		count_fun += _putchar_val('-');
 		digit *= -1;
+		_putchar_val('-');
+		writeCount++;
 	}
+	
 
 	if (digit < 10)
-		return (count_fun += _putchar_val(digit + '0'));
-
-	digitaux = digit;
-
-	while (digitaux > 9)
 	{
-		decimal *= 10;
-		digitaux /= 10;
-	}
-	while (decimal >= 1)
-	{
-		count_fun += _putchar_val(((digit / decimal) % 10) + '0');
-		decimal /= 10;
+		_putchar_val('0' + digit);
+		return (++writeCount);
 	}
 
-	return (count_fun);
+	while (digit > 0)
+	{
+		s[i++] = digit % 10;
+		digit /= 10;
+	}
+	s[i] = '\0';
+	writeCount += _reverse_print(s);
+
+	return (writeCount);
 }
