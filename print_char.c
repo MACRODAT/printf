@@ -8,14 +8,13 @@
  */
 int _print_char(va_list arg)
 {
-	unsigned char c;
+	char c;
 
-	c = va_arg(arg, unsigned int);
+	c = va_arg(arg, int);
 
 	if (c)
 	{
-		write(1, &c, 1);
-		return (1);
+		_putchar(&c);
 	}
-	return (0);
+	return (1);
 }
