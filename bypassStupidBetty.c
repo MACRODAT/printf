@@ -59,5 +59,5 @@ int handle_args(const char *format, int *index, va_list args, proto protos[])
 		return (-1);
 	_putchar_val('%');
 	_putchar(&format[*index]);
-	return (1);
+	return (2);
 }
