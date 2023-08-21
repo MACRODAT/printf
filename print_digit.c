@@ -2,7 +2,7 @@
 #include <unistd.h>
 
 /**
- * print_digit - print integers.
+ * _print_digit - print integers.
  * @args: argument
  *
  * Return: writes
