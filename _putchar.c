@@ -3,13 +3,28 @@
 /**
  * _writer - buffer writer
  * @c: the char
- * 
+ *
  * Return: write count
 */
-int _writer(const char *c)
+int _writer(const char c)
 {
-	static char buffer[1024];
 	static int i;
+	int j = 0;
+	static char buffer[1024];
+
+	if (c == -2 || i >= 1024)
+	{
+		while (j <= i)
+		{
+			write(1, (buffer + j), 1);
+			j++;
+		}
+		i = 0;
+		return (1);
+	}
+
+	buffer[i++] = c;
+	return (1);
 }
 
 /**
@@ -21,7 +36,7 @@ int _writer(const char *c)
  */
 int _putchar(const char *c)
 {
-	return (write(1, c, 1));
+	return (_writer(*c));
 }
 
 /**
@@ -33,5 +48,5 @@ int _putchar(const char *c)
  */
 int _putchar_val(const char c)
 {
-	return (write(1, &c, 1));
+	return (_writer(c));
 }

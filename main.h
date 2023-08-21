@@ -18,6 +18,7 @@ typedef struct proto
 
 int _putchar(const char *c);
 int _putchar_val(const char c);
+int _writer(const char c);
 int _print_str(va_list arg);
 int _print_percent(void);
 int _print_char(va_list arg);

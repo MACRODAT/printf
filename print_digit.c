@@ -49,7 +49,7 @@ int _print_digit(va_list args)
 		_putchar_val('-');
 		writeCount++;
 	}
-	
+
 
 	if (digit < 10)
 	{
