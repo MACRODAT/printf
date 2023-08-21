@@ -1,8 +1,15 @@
 #include "main.h"
 
+/**
+ * _writer - buffer writer
+ * @c: the char
+ * 
+ * Return: write count
+*/
 int _writer(const char *c)
 {
-
+	static char buffer[1024];
+	static int i;
 }
 
 /**
