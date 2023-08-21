@@ -23,8 +23,7 @@ int continueFunction(const char *format, va_list args, proto protos[])
 			(index)++;
 			continue;
 		}
-		_putchar(&format[index]);
-		successWrites++;
+		successWrites += _putchar(&format[index]);
 		index++;
 	}
 	return (successWrites);
@@ -57,7 +56,5 @@ int handle_args(const char *format, int *index, va_list args, proto protos[])
 	}
 	if (!format[*index + 1])
 		return (-1);
-	_putchar_val('%');
-	_putchar(&format[*index]);
-	return (2);
+	return (_putchar_val('%') + _putchar(&format[*index]));
 }
