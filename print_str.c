@@ -13,7 +13,7 @@ int _print_str(va_list arg)
 
 	str = va_arg(arg, char *);
 
-	if (!str)
+	if (!str || str == NULL)
 	{
 		str = "(null)";
 	}
