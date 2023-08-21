@@ -14,7 +14,9 @@ int _printf(const char * const format, ...)
 		{"%", _print_percent},
 		{"c", _print_char},
 		{"s", _print_str},
-		{"d", _print_digit}, {NULL, NULL}
+		{"d", _print_digit},
+		{"i", _print_digit},
+		{NULL, NULL}
 	};
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
