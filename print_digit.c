@@ -17,12 +17,12 @@ int _print_digit(va_list args)
 
 	if (digit < 0)
 	{
-		count_fun += _putchar('-');
+		count_fun += _putchar_val('-');
 		digit *= -1;
 	}
 
 	if (digit < 10)
-		return (count_fun += _putchar(digit + '0'));
+		return (count_fun += _putchar_val(digit + '0'));
 
 	digitaux = digit;
 
@@ -33,7 +33,7 @@ int _print_digit(va_list args)
 	}
 	while (decimal >= 1)
 	{
-		count_fun += _putchar(((digit / decimal) % 10) + '0');
+		count_fun += _putchar_val(((digit / decimal) % 10) + '0');
 		decimal /= 10;
 	}
 
