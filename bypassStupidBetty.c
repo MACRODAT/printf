@@ -23,6 +23,10 @@ int continueFunction(const char *format, va_list args, proto protos[])
 			(index)++;
 			continue;
 		}
+		else if (format[index] == '\0')
+		{
+			return (successWrites);
+		}
 		_putchar(&format[index]);
 		successWrites++;
 		index++;
