@@ -12,9 +12,9 @@ int _writer(const char c)
 	int j = 0;
 	static char buffer[BUFFER_LEN];
 
-	if (c == -2 || i == BUFFER_LEN - 2)
+	if (c == -2 || i == BUFFER_LEN - 1)
 	{
-		if (i == BUFFER_LEN - 2)
+		if (c != -2)
 			buffer[i++] = c;
 		while (j < i)
 		{
