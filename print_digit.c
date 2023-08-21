@@ -9,20 +9,17 @@
 */
 int _reverse_print(const char *s)
 {
-	int _len = 0, i = 0;
+	int _len = 0, i = 0, count = 0;
 
-	while (*s)
-	{
+	while (s[_len])
 		_len++;
-		s++;
-	}
 
 	for (i = _len - 1; i >= 0; i--)
 	{
-		_putchar(&s[i]);
+		count += _putchar((s + i));
 	}
 
-	return (_len);
+	return (count);
 }
 
 /**
@@ -38,7 +35,7 @@ int _print_digit(va_list args)
 	int i = 0;
 	int writeCount = 0;
 	long int digit = va_arg(args, int);
-	char *s[1000];
+	char s[1000];
 
 	if (digit == '0')
 	{
@@ -62,7 +59,7 @@ int _print_digit(va_list args)
 
 	while (digit > 0)
 	{
-		s[i++] = digit % 10;
+		s[i++] = ('0' + digit % 10);
 		digit /= 10;
 	}
 	s[i] = '\0';
