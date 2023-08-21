@@ -11,7 +11,7 @@ int _printf(const char * const format, ...)
 	int successWrites = 0;
 	va_list args;
 	proto protos[] = {
-		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {NULL, NULL}
+		{"%", _print_percent}, {"c", _print_char}, {"s", _print_str}, {"d", _print_digit}, {NULL, NULL}
 	};
 
 	if (!format || (format[0] == '%' && format[1] == '\0'))
