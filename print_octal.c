@@ -10,8 +10,8 @@ int _print_octal(va_list args)
 {
 	unsigned int octal, decimal = 0;
 	int i = 1;
-	octal = 0;
 
+	octal = 0;
 	decimal = va_arg(args, long int);
 	while (decimal != 0)
 	{

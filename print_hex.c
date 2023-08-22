@@ -59,6 +59,7 @@ int _print_hex_maj(va_list args)
 	unsigned long decimalnum;
 
 	decimalnum = va_arg(args, long int);
+
 	if (decimalnum == 0)
 	{
 		_putchar_val('0');

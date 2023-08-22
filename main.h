@@ -35,7 +35,8 @@ int _print_hex_maj(va_list args);
 int _reverse_print(const char *s);
 int _handle_print_unsigned_int(unsigned int digit, int writeCount);
 int _print_binary(va_list args);
-
+int _print_str_asc(va_list arg);
+int _handle_print_hex(unsigned long decimalnum, char maj);
 
 
 #endif
