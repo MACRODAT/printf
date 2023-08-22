@@ -28,6 +28,8 @@ int _printf(const char *format, ...);
 int continueFunction(const char *format, va_list va, proto protos[]);
 int handle_args(const char *format, int *index, va_list args, proto protos[]);
 int _print_digit(va_list args);
+int _reverse_print(const char *s);
+int _print_binary(va_list args);
 
 
 
