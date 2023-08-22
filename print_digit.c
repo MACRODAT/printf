@@ -2,12 +2,13 @@
 #include <unistd.h>
 
 /**
- * _print_unsigned - prints unsgined
+ * _handle_print_unsigned_int - prints unsgined
  * @digit: number
- * 
+ * @writeCount: number
+ *
  * Return: write count
 */
-int _handle_print_unsigned(unsigned int digit, int writeCount)
+int _handle_print_unsigned_int(unsigned int digit, int writeCount)
 {
 	int i = 0;
 	char s[1000];
@@ -50,17 +51,17 @@ int _print_digit(va_list args)
 		_putchar_val('-');
 		writeCount++;
 	}
-	return (_handle_print_unsigned(digit, writeCount));
+	return (_handle_print_unsigned_int(digit, writeCount));
 }
 /**
  * _print_unsigned - prints unsgined
- * @digit: number
- * 
+ * @args: arguments
+ *
  * Return: write count
 */
 int _print_unsigned(va_list args)
 {
 	unsigned int digit = va_arg(args, unsigned int);
 
-	return (_handle_print_unsigned(digit, 0));	
+	return (_handle_print_unsigned_int(digit, 0));
 }

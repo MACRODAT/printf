@@ -30,7 +30,7 @@ int handle_args(const char *format, int *index, va_list args, proto protos[]);
 int _print_digit(va_list args);
 int _print_unsigned(va_list args);
 int _reverse_print(const char *s);
-int _handle_print_unsigned(unsigned int digit, int writeCount);
+int _handle_print_unsigned_int(unsigned int digit, int writeCount);
 int _print_binary(va_list args);
 
 
