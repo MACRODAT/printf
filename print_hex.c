@@ -11,9 +11,9 @@ int _handle_print_hex(unsigned long decimalnum, char maj)
 {
 	unsigned long quotient, remainder;
 	char hexadecimalnum[100];
-	int i, j;
+	int j;
 
-	i = j = 0;
+	j = 0;
 	quotient = decimalnum;
 
 	while (quotient != 0)
