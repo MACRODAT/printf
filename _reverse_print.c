@@ -20,3 +20,15 @@ int _reverse_print(const char *s)
 
 	return (count);
 }
+
+/**
+ * _reverse_print - prints strings in reverse
+ * @arg: string input
+ *
+ * Return: print count
+*/
+int _print_str_rev(va_list arg)
+{
+	char *text = va_arg(arg, char *);
+	return (_reverse_print(text));
+}

@@ -23,6 +23,7 @@ int _printf(const char * const format, ...)
 		{"x", _print_hex},
 		{"X", _print_hex_maj},
 		{"R", _print_str_rot},
+		{"r", _print_str_rev},
 		{NULL, NULL}
 	};
 

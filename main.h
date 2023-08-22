@@ -38,6 +38,7 @@ int _print_binary(va_list args);
 int _print_str_asc(va_list arg);
 int _print_str_rot(va_list arg);
 int _handle_print_hex(unsigned long decimalnum, char maj);
+int _print_str_rev(va_list arg);
 
 
 #endif
