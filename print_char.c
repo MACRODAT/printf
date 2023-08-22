@@ -12,9 +12,11 @@ int _print_char(va_list arg)
 
 	c = va_arg(arg, int);
 
+	_putchar_val(c);
+
 	if (c)
 	{
-		_putchar(&c);
+		// _putchar(&c);
 	}
 	return (1);
 }
