@@ -14,9 +14,5 @@ int _print_char(va_list arg)
 
 	_putchar_val(c);
 
-	if (c)
-	{
-		// _putchar(&c);
-	}
 	return (1);
 }
