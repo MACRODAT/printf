@@ -40,6 +40,11 @@ int _print_hex(va_list args)
 	unsigned long decimalnum;
 
 	decimalnum = va_arg(args, long int);
+	if (decimalnum == 0)
+	{
+		_putchar_val('0');
+		return (1);
+	}
 
 	return (_handle_print_hex(decimalnum, 'a'));
 }
@@ -54,6 +59,10 @@ int _print_hex_maj(va_list args)
 	unsigned long decimalnum;
 
 	decimalnum = va_arg(args, long int);
-
+	if (decimalnum == 0)
+	{
+		_putchar_val('0');
+		return (1);
+	}
 	return (_handle_print_hex(decimalnum, 'A'));
 }
