@@ -43,7 +43,7 @@ int handle_args(const char *format, int *index, va_list args, proto protos[])
 	int n_protos, i = 0, size = -1;
 
 	(*index)++;
-	n_protos = 11;
+	n_protos = 12;
 	if (!format[*index] || format[*index] == '\0')
 		return (-1);
 	for (i = 0; i < n_protos; i++)
