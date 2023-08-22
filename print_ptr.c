@@ -17,14 +17,14 @@ int _print_ptr(va_list args)
 
 	while (*p)
 	{
-		x = *p % 16;
+		/*x = *p % 16;
 		if (x < 10)
 			s[i] = x + '0';
 		else
 			s[i] = x + 'a'
 		s[i] = (*p + '0');
 		i++;
-		*p /= 10;
+		return (_handle_print_unsigned_int(octal, 0));
+		*p /= 10;*/
 	}
-	return (_handle_print_unsigned_int(octal, 0));
 }
