@@ -2,26 +2,35 @@
 #include <unistd.h>
 
 /**
- * _reverse_print - prints strings in reverse
- * @s: string input
- *
- * Return: print count
+ * _print_unsigned - prints unsgined
+ * @digit: number
+ * 
+ * Return: write count
 */
-int _reverse_print(const char *s)
+int _handle_print_unsigned(unsigned int digit, int writeCount)
 {
-	int _len = 0, i = 0, count = 0;
+	int i = 0;
+	char s[1000];
 
-	while (s[_len])
-		_len++;
-
-	for (i = _len - 1; i >= 0; i--)
+	if (digit == 0)
 	{
-		count += _putchar((s + i));
+		_putchar_val('0');
+		return (1);
 	}
-
-	return (count);
+	if (digit < 10)
+	{
+		_putchar_val('0' + digit);
+		return (++writeCount);
+	}
+	while (digit > 0)
+	{
+		s[i++] = ('0' + digit % 10);
+		digit /= 10;
+	}
+	s[i] = '\0';
+	writeCount += _reverse_print(s);
+	return (writeCount);
 }
-
 /**
  * _print_digit - print integers, not the
  * most efficient
@@ -32,16 +41,8 @@ int _reverse_print(const char *s)
 
 int _print_digit(va_list args)
 {
-	int i = 0;
+	int digit = va_arg(args, int);
 	int writeCount = 0;
-	long int digit = va_arg(args, int);
-	char s[1000];
-
-	if (digit == '0')
-	{
-		_putchar_val('0');
-		return (1);
-	}
 
 	if (digit < 0)
 	{
@@ -49,21 +50,17 @@ int _print_digit(va_list args)
 		_putchar_val('-');
 		writeCount++;
 	}
+	return (_handle_print_unsigned(digit, writeCount));
+}
+/**
+ * _print_unsigned - prints unsgined
+ * @digit: number
+ * 
+ * Return: write count
+*/
+int _print_unsigned(va_list args)
+{
+	unsigned int digit = va_arg(args, unsigned int);
 
-
-	if (digit < 10)
-	{
-		_putchar_val('0' + digit);
-		return (++writeCount);
-	}
-
-	while (digit > 0)
-	{
-		s[i++] = ('0' + digit % 10);
-		digit /= 10;
-	}
-	s[i] = '\0';
-	writeCount += _reverse_print(s);
-
-	return (writeCount);
+	return (_handle_print_unsigned(digit, 0));	
 }
