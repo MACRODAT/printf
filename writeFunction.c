@@ -24,6 +24,7 @@ int _printf(const char * const format, ...)
 		{"X", _print_hex_maj},
 		{"R", _print_str_rot},
 		{"r", _print_str_rev},
+		{"p", _print_ptr},
 		{NULL, NULL}
 	};
 

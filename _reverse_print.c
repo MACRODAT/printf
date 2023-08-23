@@ -22,7 +22,7 @@ int _reverse_print(const char *s)
 }
 
 /**
- * _reverse_print - prints strings in reverse
+ * _print_str_rev - prints strings in reverse
  * @arg: string input
  *
  * Return: print count
@@ -30,5 +30,6 @@ int _reverse_print(const char *s)
 int _print_str_rev(va_list arg)
 {
 	char *text = va_arg(arg, char *);
+
 	return (_reverse_print(text));
 }
