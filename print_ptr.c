@@ -10,7 +10,7 @@ int _print_ptr(va_list arg)
 {
 	void *ptr = va_arg(arg, void *);
 	const char hexDigits[] = "0123456789abcdef";
-	unsigned long long address = (unsigned long long)ptr;
+	long address = (long)ptr;
 	char addressStr[16];
 	int index = 0;
 
