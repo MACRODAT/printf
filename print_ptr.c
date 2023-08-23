@@ -14,6 +14,15 @@ int _print_ptr(va_list arg)
 	char addressStr[16];
 	int index = 0;
 
+	if (!address)
+	{
+		_putchar_val('(');
+		_putchar_val('n');
+		_putchar_val('i');
+		_putchar_val('l');
+		_putchar_val(')');
+		return (5);
+	}
 	while (address > 0)
 	{
 		int digit = address % 16;
